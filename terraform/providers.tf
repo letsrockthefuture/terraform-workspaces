@@ -2,9 +2,8 @@ terraform {
   required_version = "~> 1.0"
 
   required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 4.0"
+    tfe = {
+      version = "~> 0.27.0"
     }
   }
 
@@ -12,9 +11,9 @@ terraform {
     organization = "letsrockthefuture"
 
     workspaces {
-      name = "github-as-code-test"
+      name = "terraform-workspaces"
     }
   }
 }
 
-provider "github" {}
+provider "tfe" {}
