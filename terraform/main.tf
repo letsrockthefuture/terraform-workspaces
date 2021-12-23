@@ -34,6 +34,15 @@ resource "tfe_organization" "letsrockthefuture" {
 #   organization = tfe_organization.letsrockthefuture.name
 # }
 
+resource "tfe_workspace" "github_as_code" {
+  name         = "github_as_code"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:github_as_code",
+  ]
+}
+
 resource "tfe_workspace" "workspaces" {
   name         = "workspaces"
   organization = tfe_organization.letsrockthefuture.name
