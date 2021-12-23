@@ -1,11 +1,18 @@
+###############################################################
+### Terraform Cloud workspaces for `management` environment ###
+###############################################################
 resource "tfe_workspace" "github_as_code" {
   name         = "github_as_code"
   organization = var.organization
 
   tag_names = [
-    "workspace:github_as_code",
+    "workspace:github:as:code",
   ]
 }
+
+################################################################
+### Terraform Cloud workspaces for `development` environment ###
+################################################################
 
 resource "tfe_workspace" "network_development_us_east_1" {
   name         = "network-development-us-east-1"
@@ -14,16 +21,6 @@ resource "tfe_workspace" "network_development_us_east_1" {
   tag_names = [
     "workspace:network",
     "environment:development",
-  ]
-}
-
-resource "tfe_workspace" "network_production_us_east_1" {
-  name         = "network-production-us-east-1"
-  organization = var.organization
-
-  tag_names = [
-    "workspace:network",
-    "environment:production",
   ]
 }
 
@@ -37,16 +34,6 @@ resource "tfe_workspace" "security_development_us_east_1" {
   ]
 }
 
-resource "tfe_workspace" "security_production_us_east_1" {
-  name         = "security-production-us-east-1"
-  organization = var.organization
-
-  tag_names = [
-    "workspace:security",
-    "environment:production",
-  ]
-}
-
 resource "tfe_workspace" "application_development_us_east_1" {
   name         = "application-development-us-east-1"
   organization = var.organization
@@ -54,6 +41,30 @@ resource "tfe_workspace" "application_development_us_east_1" {
   tag_names = [
     "workspace:application",
     "environment:development",
+  ]
+}
+
+###############################################################
+### Terraform Cloud workspaces for `production` environment ###
+###############################################################
+
+resource "tfe_workspace" "network_production_us_east_1" {
+  name         = "network-production-us-east-1"
+  organization = var.organization
+
+  tag_names = [
+    "workspace:network",
+    "environment:production",
+  ]
+}
+
+resource "tfe_workspace" "security_production_us_east_1" {
+  name         = "security-production-us-east-1"
+  organization = var.organization
+
+  tag_names = [
+    "workspace:security",
+    "environment:production",
   ]
 }
 
