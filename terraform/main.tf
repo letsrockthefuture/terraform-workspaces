@@ -1,6 +1,7 @@
 ###############################################################
 ### Terraform Cloud workspaces for `management` environment ###
 ###############################################################
+
 resource "tfe_workspace" "github_as_code" {
   name         = "github-as-code"
   organization = var.organization
