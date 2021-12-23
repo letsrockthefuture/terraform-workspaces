@@ -51,6 +51,6 @@ resource "tfe_workspace" "networking_development_us_east_1" {
   tag_names = [
     "workspace:networking",
     "environment:development",
-    "region:us-east-1",
+    "region:useast1",
   ]
 }
