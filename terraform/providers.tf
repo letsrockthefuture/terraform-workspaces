@@ -11,7 +11,7 @@ terraform {
     organization = "letsrockthefuture"
 
     workspaces {
-      name = "terraform-workspaces"
+      name = "workspaces"
     }
   }
 }

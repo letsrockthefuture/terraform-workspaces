@@ -1,10 +1,3 @@
-resource "tfe_organization" "letsrockthefuture" {
-  name                     = "letsrockthefuture"
-  email                    = "danielvincenzi@icloud.com"
-  cost_estimation_enabled  = false
-  collaborator_auth_policy = "two_factor_mandatory"
-}
-
 resource "tfe_workspace" "github_as_code" {
   name         = "github_as_code"
   organization = tfe_organization.letsrockthefuture.name
@@ -65,7 +58,7 @@ resource "tfe_workspace" "application_development_us_east_1" {
 }
 
 resource "tfe_workspace" "application_production_us_east_1" {
-  name         = "security-production-us-east-1"
+  name         = "application-production-us-east-1"
   organization = tfe_organization.letsrockthefuture.name
 
   tag_names = [
