@@ -39,7 +39,18 @@ resource "tfe_workspace" "terraform_workspaces" {
   organization = tfe_organization.letsrockthefuture.name
 
   tag_names = [
-    "terraform:workspaces",
-    "terraform",
+    "workspace:workspaces",
+    "environment:production",
+  ]
+}
+
+resource "tfe_workspace" "networking_development_us_east_1" {
+  name         = "networking-development-us-east-1"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:networking",
+    "environment:development",
+    "region:us-east-1",
   ]
 }
