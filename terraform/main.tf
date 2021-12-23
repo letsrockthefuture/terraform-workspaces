@@ -34,23 +34,71 @@ resource "tfe_organization" "letsrockthefuture" {
 #   organization = tfe_organization.letsrockthefuture.name
 # }
 
-resource "tfe_workspace" "terraform_workspaces" {
-  name         = "terraform-workspaces"
+resource "tfe_workspace" "workspaces" {
+  name         = "workspaces"
   organization = tfe_organization.letsrockthefuture.name
 
   tag_names = [
     "workspace:workspaces",
+  ]
+}
+
+resource "tfe_workspace" "network_development_us_east_1" {
+  name         = "network-development-us-east-1"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:network",
+    "environment:development",
+  ]
+}
+
+resource "tfe_workspace" "network_production_us_east_1" {
+  name         = "network-development-us-east-1"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:network",
     "environment:production",
   ]
 }
 
-resource "tfe_workspace" "networking_development_us_east_1" {
-  name         = "networking-development-us-east-1"
+resource "tfe_workspace" "security_development_us_east_1" {
+  name         = "security-development-us-east-1"
   organization = tfe_organization.letsrockthefuture.name
 
   tag_names = [
-    "workspace:networking",
+    "workspace:security",
     "environment:development",
-    "region:useast1",
+  ]
+}
+
+resource "tfe_workspace" "security_production_us_east_1" {
+  name         = "security-production-us-east-1"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:security",
+    "environment:production",
+  ]
+}
+
+resource "tfe_workspace" "application_development_us_east_1" {
+  name         = "application-development-us-east-1"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:application",
+    "environment:development",
+  ]
+}
+
+resource "tfe_workspace" "application_production_us_east_1" {
+  name         = "security-production-us-east-1"
+  organization = tfe_organization.letsrockthefuture.name
+
+  tag_names = [
+    "workspace:application",
+    "environment:production",
   ]
 }
