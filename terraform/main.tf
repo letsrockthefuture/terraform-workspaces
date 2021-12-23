@@ -18,7 +18,7 @@ resource "tfe_workspace" "network_development_us_east_1" {
 }
 
 resource "tfe_workspace" "network_production_us_east_1" {
-  name         = "network-development-us-east-1"
+  name         = "network-production-us-east-1"
   organization = var.organization
 
   tag_names = [
