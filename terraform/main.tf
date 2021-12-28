@@ -11,6 +11,40 @@ resource "tfe_workspace" "github_as_code" {
   ]
 }
 
+###########################################################
+### Terraform Cloud workspaces for `shared` environment ###
+###########################################################
+
+resource "tfe_workspace" "network_shared_us_east_1" {
+  name         = "network-shared-us-east-1"
+  organization = var.organization
+
+  tag_names = [
+    "workspace:network",
+    "environment:shared",
+  ]
+}
+
+resource "tfe_workspace" "security_shared_us_east_1" {
+  name         = "security-shared-us-east-1"
+  organization = var.organization
+
+  tag_names = [
+    "workspace:security",
+    "environment:shared",
+  ]
+}
+
+resource "tfe_workspace" "application_shared_us_east_1" {
+  name         = "application-shared-us-east-1"
+  organization = var.organization
+
+  tag_names = [
+    "workspace:application",
+    "environment:shared",
+  ]
+}
+
 ################################################################
 ### Terraform Cloud workspaces for `development` environment ###
 ################################################################
