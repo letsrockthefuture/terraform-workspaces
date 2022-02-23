@@ -1,7 +1,3 @@
-###############################################################
-### Terraform Cloud workspaces for `management` environment ###
-###############################################################
-
 resource "tfe_workspace" "github_as_code" {
   name         = "github-as-code"
   organization = var.organization
@@ -10,10 +6,6 @@ resource "tfe_workspace" "github_as_code" {
     "workspace:github:as:code",
   ]
 }
-
-###########################################################
-### Terraform Cloud workspaces for `shared` environment ###
-###########################################################
 
 resource "tfe_workspace" "network_shared_us_east_1" {
   name         = "network-shared-us-east-1"
@@ -45,10 +37,6 @@ resource "tfe_workspace" "application_shared_us_east_1" {
   ]
 }
 
-################################################################
-### Terraform Cloud workspaces for `development` environment ###
-################################################################
-
 resource "tfe_workspace" "network_development_us_east_1" {
   name         = "network-development-us-east-1"
   organization = var.organization
@@ -78,10 +66,6 @@ resource "tfe_workspace" "application_development_us_east_1" {
     "environment:development",
   ]
 }
-
-###############################################################
-### Terraform Cloud workspaces for `production` environment ###
-###############################################################
 
 resource "tfe_workspace" "network_production_us_east_1" {
   name         = "network-production-us-east-1"
